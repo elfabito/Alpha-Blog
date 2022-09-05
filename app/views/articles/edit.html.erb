@@ -1,4 +1,4 @@
-<h1>Crear un nuevo Articulo</h1>
+<h1>Editar Articulos</h1>
 
 <% if @article.errors.any? %>
   <h2>No se guardo el articulo por los siguientes errores</h2>
@@ -9,7 +9,7 @@
   </ul>
 <% end %>
 
-<%= form_with scope: :article, url: articles_path, data: { turbo: false }, local: true do |f| %>
+<%= form_with(model: @article, data: { turbo: false }, local:true ) do |f| %>
 
     <p>
        <%= f.label :title %><br/>
@@ -23,6 +23,7 @@
   <p>
     <%= f.submit %>
   </p>
+
   <% end %>
 
-  <p><%= link_to 'Volver', articles_path %></p>
+  <%= link_to 'Volver', articles_path %>

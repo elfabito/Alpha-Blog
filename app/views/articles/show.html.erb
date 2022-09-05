@@ -2,3 +2,7 @@
 
 <p><strong>Titulo: </strong><%=@article.title%></p>
 <p><strong>Descripcion: </strong><%=@article.description%></p>
+
+<%= link_to 'Editar', edit_article_path(@article) %> </br> </br>
+<%= button_to 'Borrar', article_path(@article), method: :delete, onclick: "return confirm('Estas seguro?')" %> </br>
+<%= link_to 'Volver', articles_path  %>

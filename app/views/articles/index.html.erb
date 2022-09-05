@@ -15,9 +15,15 @@
       <tr>
         <td><%= article.title %></td>
         <td><%= article.description %></td>
-        <td>Placeholder</td>
-      </tr>
-    <% end %>
-  </tbody>
+        <td><%= link_to 'Mostrar', article_path(article) %></td>
+        <td><%= button_to 'Borrar', article_path(article), method: :delete, onclick: "return confirm('Estas seguro?')" %></td>
+        <td><%= link_to 'Editar', edit_article_path(article) %></td>
 
+      </tr>
+
+    <% end %>
+</tbody>
 </table>
+<p>
+  <%= link_to 'Crear nuevo articulo', new_article_path %>
+</p>
