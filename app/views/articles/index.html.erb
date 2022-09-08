@@ -1,29 +1,22 @@
-<h1>Lista de Articulos</h1>
+<div id="page-content">
+<h1 class="text-center mt-4" >Lista de Articulos</h1>
+<div class="container">
 
-
-<table>
-  <thead>
-     <tr>
-        <th>Titulo</th>
-        <th>Descripcion</th>
-        <th>Accion</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.description %></td>
-        <td><%= link_to 'Mostrar', article_path(article) %></td>
-        <td><%= button_to 'Borrar', article_path(article), method: :delete, onclick: "return confirm('Estas seguro?')" %></td>
-        <td><%= link_to 'Editar', edit_article_path(article) %></td>
-
-      </tr>
-
-    <% end %>
-</tbody>
-</table>
-<p>
-  <%= link_to 'Crear nuevo articulo', new_article_path %>
-</p>
+<% @articles.each do |article| %>
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="card text-center shadow p-3 mb-5 bg-body rounded">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= article.title %></h5>
+          <p class="card-text"><%= article.description %></p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+  </div>
+</div>
+  <% end %>
+  </div>
+</div>

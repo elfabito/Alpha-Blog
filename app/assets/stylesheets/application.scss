@@ -34,18 +34,18 @@
   }
 
   #home-container {
-margin-top : 25 px;
+  padding-top: 25 px;
     }
 
   #jumbotron {
-    background-image: image-url('a.jpg');
+    background-image: image-url('c.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 420px;
   }
 
-#page-content {
-
-  background-color: lightgrey ;
+  #page-content {
+  flex: 1 0 auto;
+  background-color: lightgrey ; ;
 }
