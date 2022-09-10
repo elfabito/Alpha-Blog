@@ -14,15 +14,18 @@
  *= require_tree .
  *= require_self
  */
+
 @import "bootstrap";
+
 
   .navbar {
   background-color: black !important;
   }
 
-   .navbar-toggler{
+  .navbar-toggler{
     color: green!important;
-    }
+  }
+
 
   .nav-link {
   color: white!important;
@@ -31,31 +34,21 @@
   #logo {
   color: white!important;
   float: left;
-  font-size: 2em;
+  font-size: 1.5em;
   letter-spacing: -1px;
-  font-weight: lighter;
-  text-transform: capitalize;
+  font-weight: bold;
+  text-transform: uppercase;
   }
 
   #home-container {
-  padding-top: 25px;
-    }
-
-  #alto-blog {
-    color:white !important;
-    font-weight-bold: 900;
+  padding-top: 30px;
+  padding-bottom: 25px;
   }
 
   #jumbotron {
-    background-image: image-url('c.jpg');
-    background-position: center 38%;
+    background-image: image-url('e.jpg');
+    background-position: center 70%;
     background-repeat: no-repeat;
     background-size: cover;
     height: 470px;
   }
-
-  #page-content {
-
-  flex: 1 0 auto;
-  background-color: lightgrey!important;
-}

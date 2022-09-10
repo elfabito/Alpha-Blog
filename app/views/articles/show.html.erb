@@ -1,8 +1,28 @@
-<h1>Muestra de Articulos</h1>
 
-<p><strong>Titulo: </strong><%=@article.title%></p>
-<p><strong>Descripcion: </strong><%=@article.description%></p>
+<h1 class="text-center pt-4" ><%=@article.title%></h1>
+<div class="container mb-5 pb-4">
+    <div class="row justify-content-md-center">
+        <div class="col-8 mt-4">
+              <div class="card text-center shadow mb-5 bg-body rounded">
+                <div class="card-header font-italy">
+                  by Fabs
+                </div>
+                    <div class="card-body">
+                        <div class="card-text"><%=simple_format(@article.description) %></div>
 
-<%= link_to 'Editar', edit_article_path(@article) %> </br> </br>
-<%= button_to 'Borrar', article_path(@article), method: :delete, onclick: "return confirm('Estas seguro?')" %> </br>
-<%= link_to 'Volver', articles_path  %>
+                        <div class="row justify-content-center pb-3">
+                            <table id="css-table">
+                                <td><%= link_to 'Edit', edit_article_path(@article), class:"btn btn-info" %></td>
+                                <td><%= button_to 'Delete', article_path(@article) , class:"btn btn-danger", method: :delete, onclick: "return confirm('Are you sure?')" %></td>
+                            </table>
+                        </div>
+                <div class="card-footer text-muted">
+                  <small> Created <%= time_ago_in_words(@article.created_at) %> ago
+                  Edited  <%= @article.update_at %>  ago </small>
+                </div>
+             </div>
+        </div>
+    </div>
+      <%= link_to 'Cancel and return to articles', articles_path, class:"input-group justify-content-center mb-3" %>
+
+</div>
