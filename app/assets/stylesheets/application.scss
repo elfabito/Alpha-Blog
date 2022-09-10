@@ -20,12 +20,16 @@
   background-color: black !important;
   }
 
+   .navbar-toggler{
+    color: green!important;
+    }
+
   .nav-link {
-  color: white;
+  color: white!important;
   }
 
   #logo {
-  color: white;
+  color: white!important;
   float: left;
   font-size: 2em;
   letter-spacing: -1px;
@@ -34,18 +38,24 @@
   }
 
   #home-container {
-  padding-top: 25 px;
+  padding-top: 25px;
     }
+
+  #alto-blog {
+    color:white !important;
+    font-weight-bold: 900;
+  }
 
   #jumbotron {
     background-image: image-url('c.jpg');
-    background-position: center center;
+    background-position: center 38%;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 420px;
+    height: 470px;
   }
 
   #page-content {
+
   flex: 1 0 auto;
-  background-color: lightgrey ; ;
+  background-color: lightgrey!important;
 }

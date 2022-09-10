@@ -1,22 +1,28 @@
 <div id="page-content">
-<h1 class="text-center mt-4" >Lista de Articulos</h1>
+<h1 class="text-center pt-4" >Lista de Articulos</h1>
 <div class="container">
 
-<% @articles.each do |article| %>
-  <div class="row justify-content-md-center">
-    <div class="col-8 mt-4">
-      <div class="card text-center shadow p-3 mb-5 bg-body rounded">
-        <div class="card-header">
-          Featured
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"><%= article.title %></h5>
-          <p class="card-text"><%= article.description %></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+      <% @articles.each do |article| %>
+      <div class="row justify-content-md-center">
+          <div class="col-8 mt-4">
+            <div class="card text-center shadow mb-5 bg-body rounded">
+              <div class="card-header font-italy">
+                by Fabs
+                </div>
+                  <div class="card-body">
+                    <h5 class="card-title"><%= link_to article.title, article_path(article), class:"text-success" %></h5>
+                    <p class="card-text"><%= truncate(article.description, lenght: 100) %></p>
+                        <%= link_to 'Ver', article_path(article), class:"btn btn-success" %>
+                        <%= link_to 'Editar', edit_article_path(article), class:"btn btn-info" %>
+                        <%= link_to 'Borrar', article_path(article), class:"btn btn-danger", method: :delete, onclick: "return confirm('Estas seguro?')" %>
+                  </div>
+              <div class="card-footer text-muted">
+                <small> Created <%= time_ago_in_words(article.created_at) %> ago
+                Edited  <%= article.update_at %>  ago </small>
+              </div>
+            </div>
+           </div>
+          </div>
+      <% end %>
       </div>
-  </div>
-</div>
-  <% end %>
-  </div>
 </div>
