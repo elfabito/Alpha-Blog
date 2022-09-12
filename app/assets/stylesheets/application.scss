@@ -14,7 +14,6 @@
  *= require_tree .
  *= require_self
  */
-
 @import "bootstrap";
 
 
@@ -25,7 +24,6 @@
   .navbar-toggler{
     color: green!important;
   }
-
 
   .nav-link {
   color: white!important;
@@ -40,12 +38,17 @@
   text-transform: uppercase;
   }
 
-  #home-container {
-  padding-top: 30px;
-  padding-bottom: 25px;
+  #jumbotron-about {
+  background-image: image-url('f.jpg');
+  background-position: center 47%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 485px;
   }
 
   #jumbotron {
+
+    margin: 0;
     background-image: image-url('e.jpg');
     background-position: center 70%;
     background-repeat: no-repeat;

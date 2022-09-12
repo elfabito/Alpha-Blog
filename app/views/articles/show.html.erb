@@ -1,28 +1,25 @@
-
-<h1 class="text-center pt-4" ><%=@article.title%></h1>
+<h1 class="text-center pt-3" ><%=@article.title%></h1>
 <div class="container mb-5 pb-4">
     <div class="row justify-content-md-center">
         <div class="col-8 mt-4">
-              <div class="card text-center shadow mb-5 bg-body rounded">
-                <div class="card-header font-italy">
-                  by Fabs
-                </div>
-                    <div class="card-body">
-                        <div class="card-text"><%=simple_format(@article.description) %></div>
-
-                        <div class="row justify-content-center pb-3">
-                            <table id="css-table">
-                                <td><%= link_to 'Edit', edit_article_path(@article), class:"btn btn-info" %></td>
-                                <td><%= button_to 'Delete', article_path(@article) , class:"btn btn-danger", method: :delete, onclick: "return confirm('Are you sure?')" %></td>
-                            </table>
-                        </div>
-                <div class="card-footer text-muted">
-                  <small> Created <%= time_ago_in_words(@article.created_at) %> ago
-                  Edited  <%= @article.update_at %>  ago </small>
-                </div>
-             </div>
+          <div class="card text-center shadow mb-5 bg-body rounded">
+            <div class="card-header font-italy">
+              by Fabs
+            </div>
+                <div class="card-body">
+                  <div class="card-text"><%=simple_format(@article.description) %></div>
+                  <div class="row justify-content-center pb-3">
+                      <table id="css-table">
+                          <td><%= link_to 'Edit', edit_article_path(@article), class:"btn btn-info" %></td>
+                          <td><%= button_to 'Delete', article_path(@article) , class:"btn btn-danger", method: :delete, onclick: "return confirm('Are you sure?')" %></td>
+                      </table>
+                  </div>
+            <div class="card-footer text-muted">
+              <small> Created <%= time_ago_in_words(@article.created_at) %> ago
+              Edited  <%= time_ago_in_words(@article.update_at) %>  ago </small>
+            </div>
+         </div>
         </div>
     </div>
       <%= link_to 'Cancel and return to articles', articles_path, class:"input-group justify-content-center mb-3" %>
-
 </div>
