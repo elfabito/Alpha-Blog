@@ -21,10 +21,27 @@
   background-color: black !important;
   }
 
-  .navbar-toggler{
-    color: green!important;
+  #boton-icon {
+    text-color: white!important;
+    background-color: white;
+    border-color: white;
+    border: 1px;
   }
 
+  #menu-article {
+    text-color: white!important;
+    background-color: black;
+    border-color: white;
+    border: 1px;
+  }
+
+  #navbarSupportedContent {
+    color: white!important;
+    border-color: rgb(255,102,203);
+  }
+  .menu {
+    color: white!important;
+  }
   .nav-link {
   color: white!important;
   }
@@ -36,6 +53,12 @@
   letter-spacing: -1px;
   font-weight: bold;
   text-transform: uppercase;
+  }
+
+  #page-content {
+  flex: 1 0 auto;
+  padding-top: 2px;
+  border:0;
   }
 
   #jumbotron-about {
