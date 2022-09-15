@@ -8,10 +8,10 @@
             <div class="card-body justify-content-md-center">
               <h5 class="card-title"><%= link_to article.title, article_path(article), class:"text-success" %></h5>
               <p class="card-text"><%= truncate(article.description, lenght: 100) %></p>
-            <div class="row text-center ">
-              <table>
+            <div class="text-center ">
+              <table class="center">
 
-                  <td> <%= link_to 'Show', article_path(article), class:"btn btn-success" %></td>
+                  <td> <%= link_to 'View', article_path(article), class:"btn btn-success" %></td>
                   <td><%= link_to 'Edit', edit_article_path(article), class:"btn btn-info" %></td>
                   <td><%= button_to 'Delete', article_path(article) , class:"btn btn-danger", method: :delete, onclick: "return confirm('Are you sure?')" %></td>
 

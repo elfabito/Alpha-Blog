@@ -8,6 +8,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def index
+    @user = User.all
+  end
+
   def show
     @user = User.find(params[:id])
     @articles = @user.articles
@@ -23,22 +27,24 @@ class UsersController < ApplicationController
  end
 end
 
-def update
-  @user = User.find(params[:id])
-  if @user.update(params_user)
-    flash[:notice] = "Your account information was updated succesfully"
-    redirect_to articles_path
-  else
-    render 'edit'
+  def update
+    @user = User.find(params[:id])
+    if @user.update(params_user)
+      flash[:notice] = "Your account information was updated succesfully"
+      redirect_to users_path
+    else
+      render 'edit'
+    end
   end
-end
 
-def destroy
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "User deleted succesfully"
+    redirect_to users_path
+  end
 
-  @user.destroy
-  flash[:notice] = "User deleted succesfully"
-  redirect_to articles_path
-end
+
 private
 
   def params_user
