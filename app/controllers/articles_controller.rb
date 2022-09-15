@@ -23,7 +23,7 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
     @article.update_at = Time.now
     if @article.save
 
-    flash[:notice] = "Articulo creado correctamente"
+    flash[:notice] = "Article created succesfully"
 
     redirect_to @article
 
@@ -35,7 +35,7 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
   def update
     @article.update_at = Time.now
     if @article.update(params_article)
-      flash[:notice] = "Articulo actualizado correctamente"
+      flash[:notice] = "Article updated succesfully"
       redirect_to @article
     else
       render 'edit'
@@ -45,7 +45,7 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
   def destroy
 
     @article.destroy
-    flash[:notice] = "Articulo borrado correctamente"
+    flash[:notice] = "Article deleted"
     redirect_to articles_path
   end
 
