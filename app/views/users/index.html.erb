@@ -1,6 +1,8 @@
 <div class="mb-5 pb-4">
 <h1 class="text-center pt-3" >Alpha Bloggers</h1>
-
+<div class="flickr_pagination p-2">
+      <%= will_paginate @user, :container => false %>
+</div>
 <% @user.each do |user| %>
 <div class="row justify-content-center text-center">
     <div class="col-8 mt-4">
@@ -27,4 +29,11 @@
     </div>
     <% end %>
 </div>
+</div>
+
+<div class="flickr_pagination p-2">
+      <div class="page_info m-2">
+        <%= page_entries_info @user %>
+      </div>
+      <%= will_paginate @user, :container => false %>
 </div>
