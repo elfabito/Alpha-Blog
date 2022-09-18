@@ -31,7 +31,7 @@ end
     @user = User.find(params[:id])
     if @user.update(params_user)
       flash[:notice] = "Your account information was updated succesfully"
-      redirect_to users_path
+      redirect_to @user
     else
       render 'edit'
     end
