@@ -9,10 +9,12 @@
             </div>
                 <div class="card-body">
                   <div class="card-text"><%=simple_format(@article.description) %></div>
-                  <div class="row justify-content-center pb-3">
-                      <table id="css-table">
+                  <div class="text-center m-3">
+                      <table class="center">
+                          <% if logged_in? && @article.user == current_user %>
                           <td><%= link_to 'Edit', edit_article_path(@article), class:"btn btn-info" %></td>
                           <td><%= button_to 'Delete', article_path(@article) , class:"btn btn-danger", method: :delete, onclick: "return confirm('Are you sure?')" %></td>
+                          <% end %>
                       </table>
                   </div>
             <div class="card-footer text-muted">

@@ -29,6 +29,10 @@
               <div class="input-group justify-content-center">
 
                   <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class:"btn btn-success btn-light") %>
+                  <% if logged_in? && @user == current_user %>
+                  &nbsp;&nbsp;&nbsp;
+                  <%= button_to 'Delete', @user , class:"btn btn-danger", method: :delete, onclick: "return confirm('Are you sure?')" %>
+                  <% end %>
 
               </div>
               <% end %>

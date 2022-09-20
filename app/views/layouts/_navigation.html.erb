@@ -26,8 +26,18 @@
                   </li>
                 </ul>
                 <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-success btn-light" type="submit">Search</button>
+                  <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+
+                  <% if logged_in? %>
+                  <li style="list-style: none;"><%= link_to current_user.username, user_path(current_user), class:"btn btn-link text-white text-bold text-decoration-none"%></li>
+                  &nbsp;&nbsp;&nbsp;
+                  <li style="list-style: none;"><%= link_to 'Logout', logout_path, class:"btn btn-success btn-light", method: :delete%></li>
+                  <% else %>
+                  <li style="list-style: none;"><%= link_to 'Login', login_path, class:"btn btn-success btn-light"%></li>
+                  &nbsp;&nbsp;&nbsp;
+                  <li style="list-style: none;"><%= link_to 'Signup', signup_path, class:"btn btn-success btn-light"%></li>
+                  &nbsp;&nbsp;&nbsp;
+                  <% end %>
                 </form>
           </div>
       </div>

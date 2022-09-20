@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
+before_action :set_user, only:[:show, :edit, :update, :destroy]
+
   def show
-    @user = User.find(params[:id])
+
     @articles = @user.articles.paginate(page: params[:page], per_page: 2)
   end
 
@@ -14,12 +16,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+
   end
 
  def create
    @user = User.new(params_user)
    if @user.save
+     session[:user_id] = @user.id
      flash[:notice] = "Welcome to the Alpha Blog, you have succefully Sign Up"
      redirect_to articles_path
    else
@@ -28,7 +31,7 @@ class UsersController < ApplicationController
 end
 
   def update
-    @user = User.find(params[:id])
+
     if @user.update(params_user)
       flash[:notice] = "Your account information was updated succesfully"
       redirect_to @user
@@ -37,12 +40,15 @@ end
     end
   end
 
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    flash[:notice] = "User deleted succesfully"
-    redirect_to users_path
-  end
+  # def destroy
+  #   session[:user_id] = @user.id
+  #   @user = User.find(params[:id])
+  #   @user.destroy
+  #   @user.articles.destroy
+  #   session[:user_id] = nil
+  #   flash[:notice] = "User deleted succesfully"
+  #   redirect_to root_path
+  # end
 
 
 private
@@ -51,4 +57,7 @@ private
     params.require(:user).permit(:username,:email,:password)
   end
 
+def set_user
+@user = User.find(params[:id])
+end
 end

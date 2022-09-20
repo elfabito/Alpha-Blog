@@ -19,7 +19,7 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
   def create
 
     @article = Article.new(params_article)
-    @article.user = User.first
+    @article.user = current_user
     @article.update_at = Time.now
     if @article.save
 

@@ -17,8 +17,9 @@
             <div class="justify-content-center text-center ">
                 <table class="center">
                   <td> <%= link_to 'View Profile', user, class:"btn btn-success" %></td>
+                    <% if logged_in? && user == current_user %>
                   <td><%= link_to 'Edit Profile', edit_user_path(user), class:"btn btn-info" %></td>
-                  <td><%= button_to 'Delete', user , class:"btn btn-danger", method: :delete, onclick: "return confirm('Are you sure?')" %></td>
+                    <% end %>
                 </table>
             </div>
           </div>
