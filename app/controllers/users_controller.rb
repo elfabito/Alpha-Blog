@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
 before_action :set_user, only:[:show, :edit, :update, :destroy]
+before_action :require_user, only:[:edit, :update]
+before_action :require_same_user, only:[:edit, :update]
 
   def show
 
@@ -41,7 +43,7 @@ end
   end
 
   # def destroy
-  #   session[:user_id] = @user.id
+  #   session[:user_id] = nil
   #   @user = User.find(params[:id])
   #   @user.destroy
   #   @user.articles.destroy
@@ -57,7 +59,13 @@ private
     params.require(:user).permit(:username,:email,:password)
   end
 
-def set_user
-@user = User.find(params[:id])
-end
+  def set_user
+  @user = User.find(params[:id])
+  end
+
+  def require_same_user
+    if current_user != @user
+      flash[:alert] = "You can only edit your account"
+    end
+  end
 end

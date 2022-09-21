@@ -15,7 +15,9 @@
                       Articles
                     </a>
                     <ul class="dropdown-menu" id= "menu-article">
+                      <% if logged_in? %>
                       <%= link_to 'Create new Article', new_article_path, class:"dropdown-item" %>
+                      <% end %>
                       <%= link_to 'View Articles', articles_path, class: "dropdown-item" %>
 
                     </ul>
@@ -29,14 +31,26 @@
                   <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
 
                   <% if logged_in? %>
-                  <li style="list-style: none;"><%= link_to current_user.username, user_path(current_user), class:"btn btn-link text-white text-bold text-decoration-none"%></li>
-                  &nbsp;&nbsp;&nbsp;
-                  <li style="list-style: none;"><%= link_to 'Logout', logout_path, class:"btn btn-success btn-light", method: :delete%></li>
+<div class="container pt-1">
+                      <li style="list-style: none;" class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                            Profile [<%= current_user.username %>]
+                          </a>
+                          <ul class="dropdown-menu">
+                            <div class="container">
+                            <%= link_to 'View your Profile', user_path(current_user), class:"dropdown-item" %>
+                            <%= link_to 'Edit your Profile', edit_user_path(current_user), class: "dropdown-item" %>
+                            <%= link_to 'Logout', logout_path, class:"btn btn-success btn-light", method: :delete%>
+                            </div>
+                          </ul>
+                      </li>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;
                   <% else %>
-                  <li style="list-style: none;"><%= link_to 'Login', login_path, class:"btn btn-success btn-light"%></li>
-                  &nbsp;&nbsp;&nbsp;
-                  <li style="list-style: none;"><%= link_to 'Signup', signup_path, class:"btn btn-success btn-light"%></li>
-                  &nbsp;&nbsp;&nbsp;
+                    <li style="list-style: none;"><%= link_to 'Login', login_path, class:"btn btn-success btn-light"%></li>
+                    &nbsp;&nbsp;&nbsp;
+                    <li style="list-style: none;"><%= link_to 'Signup', signup_path, class:"btn btn-success btn-light"%></li>
+                    &nbsp;&nbsp;&nbsp;
                   <% end %>
                 </form>
           </div>

@@ -82,6 +82,12 @@
     height: 470px;
   }
 
+  .dropdown-menu[data-bs-popper] {
+    left:auto;
+    right: -1em;
+    text-align:right;
+  }
+
 /*Pagination Styling */
 
 .flickr_pagination {
