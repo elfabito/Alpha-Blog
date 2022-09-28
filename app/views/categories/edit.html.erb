@@ -1,10 +1,10 @@
-<h1 class="text-center" >Create new Category</h1>
+<h1 class="text-center" >Edit Category</h1>
 
 <div class="container mb-4 pb-5 pt-4">
     <div class="input-group justify-content-center mb-3">
         <div class="col-10">
           <%= render 'form' %>
-          <%= link_to 'Cancel and return to categories listing', categories_path, class:"input-group justify-content-center mb-3" %>
+          <%= link_to 'Cancel and return to category', category_path(@category), class:"input-group justify-content-center mb-3" %>
         </div>
     </div>
 </div>

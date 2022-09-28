@@ -1,45 +1,45 @@
-<div class="mb-5 pb-4">
-<h1 class="text-center pt-3" >Alpha Bloggers</h1>
-<div class="flickr_pagination p-2">
-      <%= will_paginate @user, :container => false %>
-</div>
-<% @user.each do |user| %>
-<div class="row justify-content-center text-center">
-    <div class="col-8 mt-4">
-      <div class="card text-center shadow mb-3 bg-body rounded">
-        <div class="card-header font-italy">
-          <%= link_to user.username, user %>
-        </div>
-            <div class="card-body justify-content-md-center">
-              <h5 class="card-title">
-                <%= link_to gravatar_for(user, size: 150) %></h5>
-              <p class="card-text"><%= pluralize(user.articles.count, "article") %></p>
-            <div class="justify-content-center text-center ">
-                <table class="center">
-                  <td> <%= link_to 'View Profile', user, class:"btn btn-success" %></td>
-                    <% if logged_in? %>
-                      <% if user == current_user %>
-                        <td><%= link_to 'Edit Profile', edit_user_path(user), class:"btn btn-info" %></td>
-                      <% end %>
-                      <% if current_user.admin? %>
-                        <td><%= button_to 'Delete User', user , class:"btn btn-danger", method: :delete, onclick: "return confirm('Are you sure?')" %></td>
-                      <% end %>
-                    <% end %>
-                </table>
-            </div>
+<h1 class="text-center" >Alpha Bloggers</h1>
+<div class="container mb-3">
+  <div class="flickr_pagination mb-2 p-2">
+        <%= will_paginate @user, :container => false %>
+  </div>
+  <% @user.each do |user| %>
+  <div class="row justify-content-center text-center">
+      <div class="col-8">
+        <div class="card text-center shadow mb-3 bg-body rounded">
+          <div class="card-header font-italy">
+            <%= link_to user.username, user %>
           </div>
-        <div class="card-footer text-muted">
-          <small> Joined <%= time_ago_in_words(user.created_at) %> ago
+              <div class="card-body justify-content-md-center">
+                <h5 class="card-title">
+                  <%= link_to gravatar_for(user, size: 150) %></h5>
+                <p class="card-text"><%= pluralize(user.articles.count, "article") %></p>
+              <div class="justify-content-center text-center ">
+                  <table class="center">
+                    <td> <%= link_to 'View Profile', user, class:"btn btn-success" %></td>
+                      <% if logged_in? %>
+                        <% if user == current_user %>
+                          <td><%= link_to 'Edit Profile', edit_user_path(user), class:"btn btn-info" %></td>
+                        <% end %>
+                        <% if current_user.admin? %>
+                          <td><%= button_to 'Delete User', user , class:"btn btn-danger", method: :delete, onclick: "return confirm('Are you sure?')" %></td>
+                        <% end %>
+                      <% end %>
+                  </table>
+              </div>
+            </div>
+          <div class="card-footer text-muted">
+            <small> Joined <%= time_ago_in_words(user.created_at) %> ago
+          </div>
         </div>
       </div>
-    </div>
-    <% end %>
-</div>
-</div>
+      <% end %>
+  </div>
 
-<div class="flickr_pagination m-2">
-      <div class="page_info m-2">
-        <%= page_entries_info @user %>
-      </div>
-      <%= will_paginate @user, :container => false %>
+  <div class="flickr_pagination mb-4">
+        <div class="page_info m-2">
+          <%= page_entries_info @user %>
+        </div>
+        <%= will_paginate @user, :container => false %>
+  </div>
 </div>

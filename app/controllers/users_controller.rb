@@ -25,7 +25,7 @@ before_action :require_same_user, only:[:edit, :update, :destroy]
    @user = User.new(params_user)
    if @user.save
      session[:user_id] = @user.id
-     flash[:notice] = "Welcome to the Alpha Blog, you have succefully Sign Up"
+     flash[:notice] = "Welcome to the Alpha Blog, you have successfully Sign Up"
      redirect_to articles_path
    else
      render 'new'
@@ -35,7 +35,7 @@ end
   def update
 
     if @user.update(params_user)
-      flash[:notice] = "Your account information was updated succesfully"
+      flash[:notice] = "Your account information was updated successfully"
       redirect_to @user
     else
       render 'edit'
@@ -46,7 +46,7 @@ end
 
     @user.destroy
     session[:user_id] = nil if @user == current_user
-    flash[:notice] = "Account and all associated articles succesfully deleted"
+    flash[:notice] = "Account and all associated articles successfully deleted"
     redirect_to articles_path
 
    end

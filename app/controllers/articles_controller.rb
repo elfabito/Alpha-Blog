@@ -19,13 +19,12 @@ before_action :require_same_user, only:[:edit, :update, :destroy]
   end
 
   def create
-
     @article = Article.new(params_article)
     @article.user = current_user
     @article.update_at = Time.now
     if @article.save
 
-    flash[:notice] = "Article created succesfully"
+    flash[:notice] = "Article created successfully"
 
     redirect_to @article
 
@@ -37,7 +36,7 @@ before_action :require_same_user, only:[:edit, :update, :destroy]
   def update
     @article.update_at = Time.now
     if @article.update(params_article)
-      flash[:notice] = "Article updated succesfully"
+      flash[:notice] = "Article updated successfully"
       redirect_to @article
     else
       render 'edit'
@@ -58,7 +57,7 @@ private
   end
 
  def params_article
-   params.require(:article).permit(:title, :description)
+   params.require(:article).permit(:title, :description, category_ids:[] )
  end
 
    def require_same_user

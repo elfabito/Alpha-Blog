@@ -1,1 +1,15 @@
-<h1 class="text-center pt-3" >Category <%= @category.name %></h1>
+<h1 class="text-center" >Category : <%= @category.name %></h1>
+
+<div class="text-center pt-3" >
+    <% if current_user.admin? %>
+    <%= link_to 'Edit Category name', edit_category_path(@category), class:"btn btn-info" %>
+    <% end %>
+    <h1 class="text-center pt-3" >Articles</h1>
+    <div class="flickr_pagination">
+          <%= will_paginate @articles, :container => false %>
+    </div>
+    <%= render 'articles/article' %>
+</div>
+<div class="flickr_pagination mb-4">
+      <%= will_paginate @articles, :container => false %>
+</div>
