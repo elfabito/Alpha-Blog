@@ -1,7 +1,7 @@
 <h1 class="text-center" >Category : <%= @category.name %></h1>
 
 <div class="text-center pt-3" >
-    <% if current_user.admin? %>
+    <% if logged_in? && current_user.admin? %>
     <%= link_to 'Edit Category name', edit_category_path(@category), class:"btn btn-info" %>
     <% end %>
     <h1 class="text-center pt-3" >Articles</h1>
