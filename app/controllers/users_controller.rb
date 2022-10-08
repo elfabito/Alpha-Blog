@@ -55,7 +55,7 @@ end
 private
 
   def params_user
-    params.require(:user).permit(:username,:email,:password)
+    params.require(:user).permit(:username,:password)
   end
 
   def set_user

@@ -60,16 +60,15 @@
 
   #page-content {
   flex: 1 0 auto;
-  padding-top: 2px;
   border:0;
   }
 
   #jumbotron-about {
-  background-image: image-url('f.jpg');
-  background-position: center 47%;
+  background-image: image-url('b.jpg');
+  background-position: center 32%;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 485px;
+  height: 455px;
   }
 
   #jumbotron {
@@ -79,7 +78,7 @@
     background-position: center 70%;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 470px;
+    height: 455px;
   }
 
   .dropdown-menu[data-bs-popper] {

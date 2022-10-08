@@ -31,7 +31,7 @@
                   <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class:"btn btn-success btn-light") %>
                   <% if logged_in? && @user == current_user %>
                   &nbsp;&nbsp;&nbsp;
-                  <%= button_to 'Delete User', @user , class:"btn btn-danger", method: :delete, onclick: "return confirm('Are you sure?')" %>
+                  <%= button_to 'Delete User', user_path , class:"btn btn-danger", method: :delete, onclick: "return confirm('Are you sure?')" %>
                   <% end %>
 
               </div>

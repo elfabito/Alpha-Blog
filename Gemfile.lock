@@ -240,7 +240,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
-  pg
+  pg (~> 1.4.3)
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
   rexml (~> 3.2, >= 3.2.4)
